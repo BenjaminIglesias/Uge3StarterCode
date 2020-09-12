@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .mydiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}
+        
+    </style> 
+    <script>
+       document.getElementById("outer").addEventListener("click", displayDate);
+       function printToCon(event){
+         console.log("!OUTER! "+ "Hi from " + event.target.id);
+         document.getElementById("toPage").innerHTML = "Hi from " + event.target.id ;
+
+       }
+       
+    </script>
+    </head>
+
+    <body>
+        <div id='outer' onclick='printToCon(event)'>
+        <div id="1" class="mydiv" onclick='console.log("Hi from"+" " +(this.id))'>1</div>
+        <div id="2" class="mydiv" onclick='console.log("Hi from"+" "+(this.id))'>2</div>
+        <div id="3" class="mydiv" >3</div>
+        <div id="4" class="mydiv" >4</div>
+        <div id="5" class="mydiv" >5</div>
+        <div id="6" class="mydiv" >6</div>
+        <div id="7" class="mydiv" >7</div>
+        <div id="8" class="mydiv" >8</div>
+        <div id="9" class="mydiv" >9</div>
+        <div id="10" class="mydiv">10</div>
+        </div>
+        <p id='toPage'></p> 
+        
+            <form action="https://benjaminiglesias.dk">
+    <input type="submit" value="Gå tilbage til hovedsiden" />
+</form>
+    </body>
+        
+
+</html>

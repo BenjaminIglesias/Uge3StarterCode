@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Table Data Addition</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+    
+
+<script>
+var $table = $('#table');  
+var cars = [
+  { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+  { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+  { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+  { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+  { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
+];
+
+function makeTable(tableCars){$(function () {  
+    $('#table').bootstrapTable({
+        data: tableCars
+    });
+});
+}
+function destroyTable(){
+    $('#table').bootstrapTable("destroy");
+}
+function lessThan(){
+destroyTable();
+var valueLess = document.getElementById("filterValue").value;
+let filterArr = cars.filter(car => car.price < valueLess);
+makeTable(filterArr);
+event.preventDefault();
+}
+</script>
+</head>
+<body onload="makeTable(cars)">
+    <div class="container">
+        <table id="table" data-height="230">
+        <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="year">Year</th>
+                <th data-field="make">Make</th>
+                <th data-field="model">Model</th>
+                <th data-field="price">Price</th>
+                 
+            </tr>
+        </thead>
+    </table>
+     <form>
+        <input type="text" id="filterValue" value="5000"> <input type="submit" value="Price less than" onclick="lessThan()">
+     </form>
+    </div>
+       <form action="https://benjaminiglesias.dk">
+    <input type="submit" value="Gå tilbage til hovedsiden" />
+</form>
+</body>
+</html>

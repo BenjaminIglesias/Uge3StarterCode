@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>    
+               function getUserByID(){
+        let url = "https://benjaminiglesias.dk/devops-starter/api/movie/id/" + document.getElementById("userValue").value;
+fetch(url).then(res => res.json()).then(data => {
+   console.log("data",data);
+    document.getElementById("toPage").innerHTML = "id: " + data.id +"<br>"+ "title: " + data.title + "<br>" + "year: " + data.year + "<br>" +"genre: " + data.genre;  
+        }); }   
+        </script>
+    </head>
+    <body>
+        <b> Der er kun 2 entries</b> 
+       <input type="text" id="userValue" value="1"> <input type="submit" value="Get User" onclick="getUserByID()">
+        <p id='toPage'></p> 
+        <br>
+        <form action="https://benjaminiglesias.dk">
+    <input type="submit" value="Gå tilbage til hovedsiden" />
+</form>
+    </body>
+    
+    
+</html>

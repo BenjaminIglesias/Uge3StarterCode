@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+  var names = ["Lars", "Jan", "Peter", "Bo", "Frederik"];
+    function arrtoHtml(array){
+    return '<ul>'+ array.map(function(element){return '<li>'+element+'</li>';}).join("") + '</ul>';
+}
+function makeTheTable(arr){
+  document.getElementById("table").innerHTML = arrtoHtml(arr);   
+}
+function addToArr(){
+     var nametopush = document.getElementById("inputName").value;   
+     names.push(nametopush);
+     makeTheTable(names);
+     event.preventDefault();
+}
+function deleteFirst(){
+    names.shift();
+    makeTheTable(names);
+}
+function deleteLast(){
+    names.pop();
+    makeTheTable(names);
+}
+            </script>
+    </head>
+    <body onload="makeTheTable(names)()">
+        <div>
+            <p id="table"></p>            
+            <form>
+                <input type="text" id="inputName" value="Indtast Navn"> <input type="submit" value="Submit" onclick="addToArr()">
+            </form>
+            <button onclick="deleteFirst()">Fjern første</button>
+            <button onclick="deleteLast()">Fjern sidste</button>
+
+        </div>
+        
+            <form action="https://benjaminiglesias.dk">
+    <input type="submit" value="Gå tilbage til hovedsiden" />
+</form>
+    </body>
+</html>

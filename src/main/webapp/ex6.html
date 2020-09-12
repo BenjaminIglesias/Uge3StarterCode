@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        function getUserByID(){
+        let url = "https://jsonplaceholder.typicode.com/users/" + document.getElementById("userValue").value;
+fetch(url).then(res => res.json()).then(data => {
+   console.log("data",data);
+    document.getElementById("toPage").innerHTML = 
+         "name: " + data.name + "<br>" + "phone: " + data.phone + "<br>" + "<br>" + "<b>Address: </b>" + 
+         "<br>" + "Street: " + data.address.street + "<br>" + "City: " + data.address.city + "<br>" + "Zip: " + data.address.zipcode + "<br>" + "Geo (lat,lng): " + data.address.geo.lat + ", " + data.address.geo.lng ;
+        }); }   
+        function getAll(){
+        let url = "https://jsonplaceholder.typicode.com/users/";    
+        fetch(url) .then(res => res.json()).then(data => {
+        console.log("data",data);
+             appendData(data);
+        });
+   
+           
+        }
+        function appendData(data) {
+  var DivContainer = document.getElementById("DivData");
+  for (var i = 0; i < data.length; i++) {
+    var div = document.createElement("div");
+    div.innerHTML = '<b>Name:</b> ' + data[i].name + ' ' + "<b>Phone:</b> "+ data[i].phone;
+    DivContainer.appendChild(div);
+  }
+}
+        </script>
+    </head>
+    <body>
+        <input type="text" id="userValue" value="1"> <input type="submit" value="Get User" onclick="getUserByID()"><button onclick="getAll()">Get All</button>
+        <p id='toPage'></p> 
+        <div id="DivData"></div>
+    <form action="https://benjaminiglesias.dk">
+    <input type="submit" value="Gå tilbage til hovedsiden" />
+</form>
+    </body>
+</html>
